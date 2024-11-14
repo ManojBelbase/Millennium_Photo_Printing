@@ -30,7 +30,7 @@ const SingleFrame = () => {
       Name: ${frameData.name}
       Size: ${frameData.size}
       Color: ${selectedColor}
-      Price: $${frameData.price.toFixed(2)}
+      Price: $${frameData.price.toFixed(2) - frameData.discount.toFixed(2)}
       Description: ${frameData.description}
       
       I'm interested in this frame. Please provide more details.`;
@@ -67,7 +67,7 @@ const SingleFrame = () => {
           <img
             src={frameData.image}
             alt={frameData.name}
-            className={`w-full h-auto object-cover rounded-sm border-8 ${borderColorClass} shadow-lg`}
+            className={`w-full h-auto object-cover rounded-sm border-8 ${borderColorClass} shadow-lg inner-shadow outline outline-2 outline-gray-300`} // Adjust color as needed
           />
         </div>
 

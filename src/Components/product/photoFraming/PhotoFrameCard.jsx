@@ -12,12 +12,12 @@ const PhotoFrameCard = ({ frame }) => {
           className={`relative md:h-96 md:w-[271.53px] border shadow-inner rounded-sm overflow-hidden`}
         >
           {/* Inner Container for White Shadow Effect */}
-          <div className="h-full w-full bg-gray-300 p-[2px] rounded-sm shadow-lg">
+          <div className="h-full w-full bg-secondary p-[2px] rounded-sm shadow-lg">
             <div className="h-full w-full rounded-sm overflow-hidden">
               <img
                 src={frame.image}
                 alt={frame.name}
-                className="h-full w-full object-fill"
+                className="h-full w-full object-contain"
               />
             </div>
           </div>

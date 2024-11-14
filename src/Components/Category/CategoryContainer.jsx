@@ -41,7 +41,7 @@ const CategoryContainer = () => {
         </h1>
         <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-6 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-6 sm:grid-cols-3 gap-3 md:gap-4">
         {categoryList.map((category, i) => (
           <Category key={i} category={category} />
         ))}

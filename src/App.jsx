@@ -11,6 +11,7 @@ import Canvas from "./Components/product/Canvas/Canvas";
 import BusinessCards from "./Components/product/BusinessCards/BusinessCards";
 import PhotoFrame from "./Components/product/photoFraming/PhotoFrame";
 import SingleFrame from "./Components/product/photoFraming/SingleFrame";
+import Login from "./auth/Login";
 function App() {
   return (
     <Routes>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/admin/login" element={<Login />} />
 
         <Route path="/shop/photo_frames" element={<PhotoFrame />} />
         <Route path="/shop/photo_frames/:id" element={<SingleFrame />} />
