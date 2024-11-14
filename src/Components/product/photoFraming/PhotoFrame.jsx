@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import photoFrameData from "./PhotoFrameData.js";
 import PhotoFrameCard from "./PhotoFrameCard";
 import { MdArrowBack } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCreateOutline } from "react-icons/io5";
-import myContext from "../../../context/myContext.jsx";
 
 const PhotoFrame = () => {
-  const { user } = useContext(myContext);
   const navigate = useNavigate();
   return (
     <div className="my-2 bg-secondary border-accent border p-4 shadow-md ">

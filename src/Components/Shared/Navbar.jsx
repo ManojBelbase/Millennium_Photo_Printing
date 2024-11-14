@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import myContext from "../../context/myContext";
+import MyContext from "../../context/MyContext";
 
 const navItems = [
   { title: "Home", path: "/" },
@@ -12,7 +12,7 @@ const navItems = [
 ];
 
 const Navbar = () => {
-  const { user } = useContext(myContext);
+  const { user } = useContext(MyContext);
   console.log(user);
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
