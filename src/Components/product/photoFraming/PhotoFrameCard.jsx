@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const PhotoFrameCard = ({ frame }) => {
   return (
-    <div>
+    <div className="shadow-sm">
       <Link
         to={`${frame.id}`} // Make sure to use `frame.id` here
         className="rounded-sm"

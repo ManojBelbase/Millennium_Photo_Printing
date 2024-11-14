@@ -12,6 +12,7 @@ import BusinessCards from "./Components/product/BusinessCards/BusinessCards";
 import PhotoFrame from "./Components/product/photoFraming/PhotoFrame";
 import SingleFrame from "./Components/product/photoFraming/SingleFrame";
 import Login from "./auth/Login";
+import CreateFrame from "./Components/product/photoFraming/CreateFrame";
 function App() {
   return (
     <Routes>
@@ -29,6 +30,10 @@ function App() {
         <Route path="/shop/banners" element={<Banners />} />
         <Route path="/shop/canvas" element={<Canvas />} />
         <Route path="/shop/business_cards" element={<BusinessCards />} />
+
+        {/*For Admin  */}
+
+        <Route path="/admin/create_frame" element={<CreateFrame />} />
       </Route>
     </Routes>
   );

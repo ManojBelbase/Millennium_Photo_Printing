@@ -1,13 +1,12 @@
 /* eslint-disable react/prop-types */
-import MyContext from './myContext';
+import MyContext from "./myContext";
 
-function MyState({children}) {
-    const name = "Kamal Nayan Upadhyay"
-  return (
-    <MyContext.Provider value={name}>
-       {children}
-    </MyContext.Provider>
-  )
+function MyState({ children }) {
+  const user = JSON.parse(localStorage.getItem("millennium"));
+
+  // Get All Photo frames
+  // const
+  return <MyContext.Provider value={{ user }}>{children}</MyContext.Provider>;
 }
 
-export default MyState
+export default MyState;

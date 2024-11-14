@@ -51,7 +51,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen px-4">
-      <div className="bg-primary px-6 py-5 border border-white rounded-xl shadow-md w-full max-w-md sm:px-8 sm:py-6">
+      <div className="bg-secondary px-6 py-5 border border-white rounded-sm shadow-md w-full max-w-md sm:px-8 sm:py-6">
         {/* Top Heading */}
         <div className="mb-4 sm:mb-5">
           <h2 className="text-center text-xl sm:text-2xl font-bold text-white">
@@ -66,7 +66,7 @@ const Login = () => {
             value={userLogin.email}
             onChange={handleChangeInput}
             placeholder="Email Address"
-            className="bg-primary border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-white"
+            className="bg-white border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-white"
           />
         </div>
         {/* Input Password */}
@@ -77,7 +77,7 @@ const Login = () => {
             value={userLogin.password}
             onChange={handleChangeInput}
             placeholder="Password"
-            className="bg-primary border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-white"
+            className="bg-white border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-white"
           />
         </div>
         {/* Login Button */}

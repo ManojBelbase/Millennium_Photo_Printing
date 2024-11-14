@@ -98,7 +98,7 @@ const SingleFrame = () => {
                     className="hidden"
                   />
                   <div
-                    className={`w-6 h-6 rounded-full border-2 cursor-pointer ${
+                    className={`md:w-6 md:h-6 w-4 h-4 rounded-full border-2 cursor-pointer ${
                       selectedColor === color.name
                         ? color.colorCode // Apply selected color
                         : "bg-gray-300"

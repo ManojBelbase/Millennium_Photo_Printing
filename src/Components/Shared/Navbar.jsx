@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import myContext from "../../context/myContext";
 
 const navItems = [
   { title: "Home", path: "/" },
   { title: "Shop", path: "/shop" },
   { title: "Gallery", path: "/gallery" },
-  // { title: "About", path: "/about" },
   { title: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
+  const { user } = useContext(myContext);
+  console.log(user);
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
