@@ -13,7 +13,6 @@ const navItems = [
 
 const Navbar = () => {
   const { user } = useContext(MyContext);
-  console.log(user);
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

@@ -1,58 +1,67 @@
-import { addDoc, collection } from "firebase/firestore";
-import React, { useContext, useState } from "react";
-import toast from "react-hot-toast";
+import React, { useState } from "react";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { fireDB } from "../../../firebase/FirebaseConfig";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { MdArrowBack } from "react-icons/md";
 
 const CreateFrame = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [frameData, setFrameData] = useState({
+
+  // Initial frame data
+  const initialFrameData = {
     name: "",
     description: "",
-    size: "",
-    frameColor: [{ name: "", colorCode: "" }],
-    customizableText: false,
-    price: "",
-    discount: "",
-    image: "",
-  });
+    size: "A4",
+    frameColor: ["Black", "White", "Golden"], // Predefined color options
+    price: 0,
+    discount: 0,
+    image: "", // This should be an image URL or path
+    time: Timestamp.now(),
+    date: new Date().toLocaleString("en-US", {
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+    }),
+  };
 
-  // Handle input change
+  // Set the initial state with the data
+  const [frameData, setFrameData] = useState(initialFrameData);
+  const [selectedColors, setSelectedColors] = useState(
+    initialFrameData.frameColor
+  ); // Track selected colors separately
+
+  // Handle checkbox change (adding/removing colors)
+  const handleCheckboxChange = (color) => {
+    setSelectedColors((prevColors) => {
+      if (prevColors.includes(color)) {
+        return prevColors.filter((c) => c !== color); // Remove color
+      } else {
+        return [...prevColors, color]; // Add color
+      }
+    });
+  };
+
+  // Handle other input changes
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFrameData((prevData) => ({
-      ...prevData,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-
-  // Handle adding a color option
-  const addColorOption = () => {
-    setFrameData((prevData) => ({
-      ...prevData,
-      frameColor: [...prevData.frameColor, { name: "", colorCode: "" }],
-    }));
-  };
-
-  // Handle color change
-  const handleColorChange = (index, e) => {
     const { name, value } = e.target;
-    const updatedColors = [...frameData.frameColor];
-    updatedColors[index][name] = value;
-    setFrameData({ ...frameData, frameColor: updatedColors });
+    setFrameData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Frame Data:", frameData);
+    console.log("Frame Data:", { ...frameData, frameColor: selectedColors });
     if (
       !frameData.name ||
       !frameData.size ||
       !frameData.image ||
       !frameData.price ||
-      !frameData.frameColor ||
+      selectedColors.length === 0 ||
       !frameData.discount
     ) {
       return toast.error("Something is missing");
@@ -60,7 +69,7 @@ const CreateFrame = () => {
     setLoading(true);
     try {
       const photoframeRef = collection(fireDB, "photoframe");
-      await addDoc(photoframeRef, frameData);
+      await addDoc(photoframeRef, { ...frameData, frameColor: selectedColors });
       toast.success("Frame added successfully");
       navigate("/shop/photo_frames");
       setLoading(false);
@@ -73,6 +82,13 @@ const CreateFrame = () => {
 
   return (
     <div className="p-4 min-w-md mx-auto bg-secondary shadow-md rounded-md text-white">
+      <button
+        className="px-2 py-1 bg-secondary border border-accent rounded-sm inline-flex items-center gap-2 md:gap-3 mb-3"
+        onClick={() => navigate("/shop/photo_frames")}
+      >
+        <MdArrowBack className="text-2xl" />
+        <span>Back</span>
+      </button>
       <h2 className="text-xl font-bold mb-4">Create New Frame</h2>
       <form onSubmit={handleSubmit}>
         {/* Name */}
@@ -103,67 +119,46 @@ const CreateFrame = () => {
           value={frameData.size}
           onChange={handleChange}
           className="bg-gray-800 border border-gray-500 p-2 w-full rounded text-white mb-2"
-          placeholder="e.g., 8*10"
+          placeholder="e.g., A4"
         />
 
         {/* Frame Colors */}
         <label className="block mb-2">Frame Colors</label>
-        {frameData.frameColor.map((color, index) => (
-          <div key={index} className="flex gap-2 mb-2">
-            <input
-              type="text"
-              name="name"
-              placeholder="Color Name"
-              value={color.name}
-              onChange={(e) => handleColorChange(index, e)}
-              className="bg-gray-800 border border-gray-500 p-2 w-1/2 rounded text-white"
-              required
-            />
-            <input
-              type="text"
-              name="colorCode"
-              placeholder="Color Code (e.g., bg-white)"
-              value={color.colorCode}
-              onChange={(e) => handleColorChange(index, e)}
-              className="bg-gray-800 border border-gray-500 p-2 w-1/2 rounded text-white"
-              required
-            />
-          </div>
-        ))}
-        <button
-          type="button"
-          onClick={addColorOption}
-          className="bg-primary hover:bg-primary text-gray-950 py-1 px-2 rounded mb-2"
-        >
-          Add Color
-        </button>
-
-        <div className="flex items-center justify-between gap-2">
-          {/* Price */}
-          <div className="flex flex-col w-full">
-            <label className="block mb-2">Price</label>
-            <input
-              type="number"
-              name="price"
-              value={frameData.price}
-              onChange={handleChange}
-              className="bg-gray-800 border border-gray-500 p-2 w-full rounded text-white mb-2"
-              required
-            />
-          </div>
-
-          {/* Discount */}
-          <div className="flex flex-col w-full">
-            <label className="block mb-2">Discount</label>
-            <input
-              type="number"
-              name="discount"
-              value={frameData.discount}
-              onChange={handleChange}
-              className="bg-gray-800 border border-gray-500 p-2 w-full rounded text-white mb-2"
-            />
-          </div>
+        <div className="flex gap-2 mb-2">
+          {initialFrameData.frameColor.map((color, index) => (
+            <label key={index} className="flex items-center gap-1">
+              <input
+                type="checkbox"
+                value={color}
+                checked={selectedColors.includes(color)}
+                onChange={() => handleCheckboxChange(color)}
+                className="bg-gray-800 border border-gray-500 p-2 rounded text-white"
+              />
+              <span>{color}</span>
+            </label>
+          ))}
         </div>
+
+        {/* Price */}
+        <label className="block mb-2">Price</label>
+        <input
+          type="number"
+          name="price"
+          value={frameData.price}
+          onChange={handleChange}
+          className="bg-gray-800 border border-gray-500 p-2 w-full rounded text-white mb-2"
+          required
+        />
+
+        {/* Discount */}
+        <label className="block mb-2">Discount</label>
+        <input
+          type="number"
+          name="discount"
+          value={frameData.discount}
+          onChange={handleChange}
+          className="bg-gray-800 border border-gray-500 p-2 w-full rounded text-white mb-2"
+        />
 
         {/* Image URL */}
         <label className="block mb-2">Image URL</label>

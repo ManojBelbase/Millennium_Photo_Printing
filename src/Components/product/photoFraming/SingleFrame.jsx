@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import photoFrameData from "./PhotoFrameData";
+import React, { useContext, useState } from "react";
+// import photoFrameData from "./PhotoFrameData";
 import { useNavigate, useParams } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
+import MyContext from "../../../context/MyContext";
+
 const SingleFrame = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const frameData = photoFrameData.find((frame) => frame.id === id);
+  const { getAllPhotoFrames } = useContext(MyContext);
+
+  const frameData = getAllPhotoFrames.find((frame) => frame.id === id);
 
   const [selectedColor, setSelectedColor] = useState("Black"); // Default to "Black"
 
+  // Dynamically determine the border class based on selected color
   const borderColorClass = (() => {
     switch (selectedColor) {
       case "Black":
@@ -27,10 +32,10 @@ const SingleFrame = () => {
   const handleWhatsAppClick = () => {
     const message = `
       *Frame Details:*
-      Name: ${frameData.name}
-      Size: ${frameData.size}
+      Name: ${frameData?.name}
+      Size: ${frameData?.size}
       Color: ${selectedColor}
-      Price: $${frameData.price.toFixed(2) - frameData.discount.toFixed(2)}
+      Price: Rs.${(frameData?.price - (frameData?.discount || 0)).toFixed(2)}
       Description: ${frameData.description}
       
       I'm interested in this frame. Please provide more details.`;
@@ -52,7 +57,7 @@ const SingleFrame = () => {
   }
 
   return (
-    <div className="bg-secondary border-accent border p-4">
+    <div className="bg-secondary h-screen border-accent border p-4">
       <button
         className="px-2 py-1 bg-secondary border border-accent rounded-sm inline-flex items-center gap-2 md:gap-3 mb-3"
         onClick={() => navigate("/shop/photo_frames")}
@@ -62,54 +67,59 @@ const SingleFrame = () => {
       </button>
       <div className="flex flex-col md:flex-row rounded-sm shadow-lg mx-auto">
         {/* Frame Image */}
-
         <div className="w-full md:w-[35%] p-2">
           <img
             src={frameData.image}
             alt={frameData.name}
-            className={`w-full h-auto object-cover rounded-sm border-8 ${borderColorClass} shadow-lg inner-shadow outline outline-2 outline-gray-300`} // Adjust color as needed
+            className={`w-full h-auto object-cover rounded-sm border-8 ${borderColorClass} shadow-lg inner-shadow outline outline-2 outline-gray-300`}
           />
         </div>
 
         {/* Frame Details */}
-        <div className="w-full md:w-1/2 flex flex-col gap-3 p-4">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
-            {frameData.name}
-          </h1>
-          <p className="text-gray-600 dark:text-gray-300">
-            {frameData.description}
-          </p>
+        <div className="w-full md:w-1/2 flex flex-col md:gap-3 gap-2 md:p-4">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
+              {frameData.name}
+            </h1>
+            <p className="text-gray-600 text-sm dark:text-gray-300">
+              {frameData.description}
+            </p>
+          </div>
 
           {/* Frame Color Selection */}
-          <div className="flex flex-col md:flex-row md:items-center gap-3">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
             <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
               Select Frame Color:
             </h3>
             <div className="flex gap-2">
-              {frameData.frameColor.map((color, index) => (
+              {["Black", "White", "Golden"].map((color, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <input
                     type="radio"
-                    id={color.name}
+                    id={color}
                     name="frameColor"
-                    value={color.name}
-                    checked={selectedColor === color.name}
-                    onChange={() => setSelectedColor(color.name)}
+                    value={color}
+                    checked={selectedColor === color}
+                    onChange={() => setSelectedColor(color)}
                     className="hidden"
                   />
                   <div
                     className={`md:w-6 md:h-6 w-4 h-4 rounded-full border-2 cursor-pointer ${
-                      selectedColor === color.name
-                        ? color.colorCode // Apply selected color
+                      selectedColor === color
+                        ? color === "Black"
+                          ? "bg-black"
+                          : color === "Golden"
+                          ? "bg-yellow-500"
+                          : "bg-white"
                         : "bg-gray-300"
                     }`}
-                    onClick={() => setSelectedColor(color.name)}
+                    onClick={() => setSelectedColor(color)}
                   ></div>
                   <label
-                    htmlFor={color.name}
-                    className={`font-semibold text-sm text-gray-700 dark:text-gray-300`}
+                    htmlFor={color}
+                    className="font-semibold text-sm text-gray-700 dark:text-gray-300"
                   >
-                    {color.name}
+                    {color}
                   </label>
                 </div>
               ))}
@@ -126,10 +136,10 @@ const SingleFrame = () => {
           <div className="flex items-center gap-2">
             <span className="text-lg text-gray-100 font-semibold">Price:</span>
             <span className="text-lg text-red-500 font-semibold">
-              Rs.{(frameData.price - (frameData?.discount || 0)).toFixed(1)}
+              Rs.{(frameData.price - (frameData?.discount || 0)).toFixed(2)}
             </span>
             <span className="text-lg font-medium text-gray-500 line-through">
-              Rs.{frameData.price.toFixed(1)}
+              Rs.{frameData?.price}
             </span>
           </div>
 

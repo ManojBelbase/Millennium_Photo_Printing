@@ -21,7 +21,7 @@ const Category = ({ category }) => {
         className="flex flex-col items-center p-2 bg-secondary rounded-lg hover:shadow-lg transition-shadow shadow-white duration-300 border hover:border-primary cursor-pointer"
       >
         {/* Image Section */}
-        <div className="w-40 h-40 md:w-40 md:h-44 bg-gray-900 rounded-md overflow-hidden">
+        <div className="w-32 h-32 md:w-40 md:h-44 bg-gray-900 rounded-md overflow-hidden">
           <img
             src={category.image}
             alt={category.name || "Category"}
