@@ -30,6 +30,7 @@ const Navbar = () => {
             alt="Logo"
             className="h-full rounded-full object-cover cursor-pointer"
             onClick={() => navigate("/")}
+            onDoubleClick={() => navigate("/admin/login")}
           />
         </div>
 

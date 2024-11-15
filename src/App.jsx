@@ -13,6 +13,7 @@ import PhotoFrame from "./Components/product/photoFraming/PhotoFrame";
 import SingleFrame from "./Components/product/photoFraming/SingleFrame";
 import Login from "./auth/Login";
 import CreateFrame from "./Components/product/photoFraming/CreateFrame";
+import UpdateFrame from "./Components/product/photoFraming/UpdateFrame";
 function App() {
   return (
     <Routes>
@@ -34,6 +35,7 @@ function App() {
         {/*For Admin  */}
 
         <Route path="/admin/create_frame" element={<CreateFrame />} />
+        <Route path="/admin/update_frame/:id" element={<UpdateFrame />} />
       </Route>
     </Routes>
   );

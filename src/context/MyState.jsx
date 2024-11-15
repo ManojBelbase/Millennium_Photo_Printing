@@ -40,7 +40,15 @@ function MyState({ children }) {
     getAllPhotoFramesFunction();
   }, []);
   return (
-    <MyContext.Provider value={{ user, loading, getAllPhotoFrames }}>
+    <MyContext.Provider
+      value={{
+        user,
+        loading,
+        setLoading,
+        getAllPhotoFrames,
+        getAllPhotoFramesFunction,
+      }}
+    >
       {children}
     </MyContext.Provider>
   );

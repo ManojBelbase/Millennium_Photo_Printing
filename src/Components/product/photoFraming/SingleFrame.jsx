@@ -3,11 +3,15 @@ import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
 import MyContext from "../../../context/MyContext";
-
+import { MdOutlineMoreHoriz } from "react-icons/md";
+import useDeletePhotoFrame from "./useDeletePhotoFrame";
 const SingleFrame = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { getAllPhotoFrames } = useContext(MyContext);
+  const { deletePhotoFrame, loading } = useDeletePhotoFrame();
+
+  const [isActionOpen, setIsActionOpen] = useState(false);
 
   const frameData = getAllPhotoFrames.find((frame) => frame.id === id);
 
@@ -58,13 +62,43 @@ const SingleFrame = () => {
 
   return (
     <div className="bg-secondary h-screen border-accent border p-4">
-      <button
-        className="px-2 py-1 bg-secondary border border-accent rounded-sm inline-flex items-center gap-2 md:gap-3 mb-3"
-        onClick={() => navigate("/shop/photo_frames")}
-      >
-        <MdArrowBack className="text-2xl" />
-        <span>Back</span>
-      </button>
+      <div className="flex items-center justify-between">
+        {/* Back button */}
+        <button
+          className="px-2 py-1 bg-secondary border border-accent rounded-sm inline-flex items-center gap-2 md:gap-3 mb-3 shadow-md hover:shadow-accent"
+          onClick={() => navigate("/shop/photo_frames")}
+        >
+          <MdArrowBack className="text-2xl" />
+          <span>Back</span>
+        </button>
+        {/* Action (Update and delete)*/}
+        <div>
+          <div className="relative">
+            <MdOutlineMoreHoriz
+              className="text-2xl cursor-pointer"
+              onClick={() => setIsActionOpen((prev) => !prev)}
+            />
+            {isActionOpen && (
+              <div className="absolute right-0 bg-secondary border border-accent rounded-sm flex flex-col gap-1 px-3 py-2">
+                <button
+                  className="cursor-pointer py-1 hover:shadow-primary border-accent shadow-sm px-2"
+                  onClick={() =>
+                    navigate(`/admin/update_frame/${frameData.id}`)
+                  }
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => deletePhotoFrame(frameData?.id)}
+                  className="cursor-pointer px-2 py-1 shadow-sm hover:shadow-red-500"
+                >
+                  Delete
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
       <div className="flex flex-col md:flex-row rounded-sm shadow-lg mx-auto">
         {/* Frame Image */}
         <div className="w-full md:w-[35%] p-2">
