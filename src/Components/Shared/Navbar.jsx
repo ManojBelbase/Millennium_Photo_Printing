@@ -6,7 +6,8 @@ import MyContext from "../../context/MyContext";
 
 const navItems = [
   { title: "Home", path: "/" },
-  { title: "Shop", path: "/shop" },
+  { title: "About", path: "/about" },
+  // { title: "Shop", path: "/shop" },
   { title: "Gallery", path: "/gallery" },
   { title: "Contact", path: "/contact" },
 ];
@@ -66,7 +67,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <ul className="absolute top-14 left-0 w-full bg-secondary flex flex-col items-start space-y-2 px-4 py-2 border border-accent rounded-sm md:hidden">
+        <ul className="absolute top-14 left-0 w-full bg-secondary flex flex-col items-start space-y-2 px-4 py-2 border border-accent rounded-sm md:hidden z-20">
           {navItems.map((item, i) => (
             <li key={i} className="w-full">
               <NavLink

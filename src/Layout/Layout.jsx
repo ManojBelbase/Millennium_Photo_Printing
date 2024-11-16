@@ -1,3 +1,4 @@
+import Footer from "../Components/Shared/Footer";
 import Navbar from "../Components/Shared/Navbar";
 import { Outlet } from "react-router-dom";
 
@@ -9,6 +10,9 @@ const Layout = () => {
         <div className="md:mx-20 mx-4">
           <Outlet />
         </div>
+      </div>
+      <div className="w-full">
+        <Footer />
       </div>
     </div>
   );

@@ -177,13 +177,6 @@ const SingleFrame = () => {
             </span>
           </div>
 
-          {/* Customizable Option */}
-          {frameData.customizableText && (
-            <p className="text-md text-green-600 dark:text-green-400 font-semibold">
-              This frame is customizable!
-            </p>
-          )}
-
           {/* Contact Button */}
           <button
             className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded"

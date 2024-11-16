@@ -83,7 +83,7 @@ const CreateFrame = () => {
   return (
     <div className="p-4 min-w-md mx-auto bg-secondary shadow-md rounded-md text-white">
       <button
-        className="px-2 py-1 bg-secondary border border-accent rounded-sm inline-flex items-center gap-2 md:gap-3 mb-3"
+        className="px-2 py-1 bg-secondary border border-accent rounded-sm inline-flex items-center gap-2 md:gap-3 mb-3 shadow-sm hover:shadow-accent"
         onClick={() => navigate("/shop/photo_frames")}
       >
         <MdArrowBack className="text-2xl" />

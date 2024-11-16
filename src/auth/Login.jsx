@@ -66,7 +66,7 @@ const Login = () => {
             value={userLogin.email}
             onChange={handleChangeInput}
             placeholder="Email Address"
-            className="bg-white border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-white"
+            className="bg-white border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-secondary"
           />
         </div>
         {/* Input Password */}
@@ -77,7 +77,7 @@ const Login = () => {
             value={userLogin.password}
             onChange={handleChangeInput}
             placeholder="Password"
-            className="bg-white border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-white"
+            className="bg-white border border-white px-3 py-2 w-full rounded-md outline-none placeholder-accent text-secondary"
           />
         </div>
         {/* Login Button */}

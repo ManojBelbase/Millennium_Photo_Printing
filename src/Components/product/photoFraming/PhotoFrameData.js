@@ -17,7 +17,7 @@ const photoFrameData = [
     image: f1,
   },
   {
-    id: "1",
+    id: "2",
     name: "Honeycomb Frame",
     description: "A stylish black frame perfect for any decor",
     size: "A4",
