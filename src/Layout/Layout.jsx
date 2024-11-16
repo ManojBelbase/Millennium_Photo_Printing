@@ -1,8 +1,36 @@
+import React, { useState, useEffect } from "react";
 import Footer from "../Components/Shared/Footer";
 import Navbar from "../Components/Shared/Navbar";
 import { Outlet } from "react-router-dom";
+import { FaArrowUp } from "react-icons/fa";
 
 const Layout = () => {
+  const [showScroll, setShowScroll] = useState(false);
+
+  // Handle scroll to show/hide the arrow
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowScroll(true);
+    } else {
+      setShowScroll(false);
+    }
+  };
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="flex flex-col items-center w-full">
       <div className="w-full max-w-screen-xl">
@@ -14,6 +42,15 @@ const Layout = () => {
       <div className="w-full">
         <Footer />
       </div>
+      {/* Scroll to Top Arrow */}
+      {showScroll && (
+        <div
+          className="fixed bottom-6 right-6 border bg-accent border-primary text-white p-2 md:p-2 rounded-full shadow-lg cursor-pointer hover:bg-primary transition"
+          onClick={scrollToTop}
+        >
+          <FaArrowUp className="text-xs md:text-sm" />
+        </div>
+      )}
     </div>
   );
 };
