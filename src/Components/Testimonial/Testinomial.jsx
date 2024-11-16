@@ -51,32 +51,34 @@ const Testinomial = () => {
     <section className=" bg-black rounded-md">
       <div className="mx-auto py-6 lg:py-8">
         <div className="flex flex-col items-start">
-          <h1 className="text:xl md:text-2xl font-semibold uppercase">
+          <h1 className="text-sm md:text-2xl font-semibold uppercase">
             Testimonials
           </h1>
           <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
         </div>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+        <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-8">
           {reviews.map((review, index) => (
             <blockquote
               key={index}
-              className="rounded-lg bg-secondary border-accent shadow-accent p-6 shadow-sm sm:p-8"
+              className="rounded-lg bg-secondary border-accent shadow-accent p-4 md:p-6 shadow-sm sm:p-8"
             >
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 md:gap-4">
                 <img
                   alt=""
                   src={review.image}
-                  className="size-14 rounded-full object-cover"
+                  className="size-10 md:size-14 rounded-full object-cover"
                 />
-                <div>
+                <div className="flex flex-col items-start">
                   <Rating stars={review.stars} />
-                  <p className="mt-0.5 text-lg font-medium text-white">
+                  <p className="mt-0.5 text-sm md:text-lg font-medium text-white">
                     {review.name}
                   </p>
                 </div>
               </div>
-              <p className="mt-4 text-gray-400">{review.text}</p>
+              <p className="mt-3 md:mt-4 text-xs md:text-base text-gray-400">
+                {review.text}
+              </p>
             </blockquote>
           ))}
         </div>

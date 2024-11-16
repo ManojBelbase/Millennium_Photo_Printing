@@ -36,7 +36,7 @@ const CategoryContainer = () => {
   return (
     <div className="my-6 flex flex-col items-start gap-4">
       <div className="flex flex-col items-start">
-        <h1 className="text:xl md:text-2xl font-semibold uppercase">
+        <h1 className="text:sm md:text-2xl font-semibold uppercase">
           Shop By Category
         </h1>
         <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
