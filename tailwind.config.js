@@ -8,6 +8,9 @@ export default {
         secondary: "#1A1A1A",
         accent: "#343a40",
       },
+      screens: {
+        xs: "450px", // Custom media query for 500px
+      },
     },
   },
   plugins: [],
