@@ -69,7 +69,7 @@ const Testinomial = () => {
                   src={review.image}
                   className="size-10 md:size-14 rounded-full object-cover"
                 />
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col ite">
                   <Rating stars={review.stars} />
                   <p className="mt-0.5 text-sm md:text-lg font-medium text-white">
                     {review.name}
