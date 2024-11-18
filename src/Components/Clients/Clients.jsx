@@ -1,6 +1,26 @@
 import React from "react";
 import { ClientsData } from "./ClientsData";
+import { motion } from "framer-motion";
 const Clients = () => {
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        staggerChildren: 0.2, // Delay between children animations
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
   return (
     <section className="bg-black rounded-md">
       <div className="mx-auto py-6 lg:py-8">
@@ -10,11 +30,17 @@ const Clients = () => {
           </h1>
           <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
         </div>
-        <div className="mt-4 grid grid-cols-4 md:grid-cols-8">
+        <motion.div
+          className="mt-4 grid grid-cols-4 md:grid-cols-8"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           {ClientsData.map((client, i) => {
             return (
-              <div
+              <motion.div
                 key={i}
+                variants={itemVariants}
                 className="h-16 w-16 md:h-24 md:w-24 rounded-sm bg-white p-1"
               >
                 <img
@@ -22,10 +48,10 @@ const Clients = () => {
                   alt={client.name}
                   className="h-full w-full object-cover rounded"
                 />
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -61,7 +61,7 @@ const SingleFrame = () => {
   }
 
   return (
-    <div className="bg-secondary h-screen border-accent border p-4">
+    <div className="bg-secondary  border-accent border p-4">
       <div className="flex items-center justify-between">
         {/* Back button */}
         <button
@@ -79,9 +79,9 @@ const SingleFrame = () => {
               onClick={() => setIsActionOpen((prev) => !prev)}
             />
             {isActionOpen && (
-              <div className="absolute right-0 bg-secondary border border-accent rounded-sm flex flex-col gap-1 px-3 py-2">
+              <div className="absolute right-0 text-white bg-secondary border border-accent rounded-sm flex flex-col gap-1 px-3 py-2">
                 <button
-                  className="cursor-pointer py-1 hover:shadow-primary border-accent shadow-sm px-2"
+                  className="cursor-pointer  py-1 hover:shadow-primary border-accent shadow-sm px-2"
                   onClick={() =>
                     navigate(`/admin/update_frame/${frameData.id}`)
                   }
@@ -110,22 +110,22 @@ const SingleFrame = () => {
         </div>
 
         {/* Frame Details */}
-        <div className="w-full md:w-1/2 flex flex-col md:gap-3 gap-2 md:p-4">
+        <div className="w-full  md:w-1/2 flex flex-col md:gap-3 gap-2 md:p-4">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
+            <h1 className="text-2xl md:text-3xl text-white font-bold dark:text-gray-100">
               {frameData.name}
             </h1>
-            <p className="text-gray-600 text-sm dark:text-gray-300">
+            <p className="text-gray-600 text-smtext-white">
               {frameData.description}
             </p>
           </div>
 
           {/* Frame Color Selection */}
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
               Select Frame Color:
             </h3>
-            <div className="flex gap-2">
+            <div className="flex gap-2 text-white">
               {["Black", "White", "Golden"].map((color, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <input
@@ -151,7 +151,7 @@ const SingleFrame = () => {
                   ></div>
                   <label
                     htmlFor={color}
-                    className="font-semibold text-sm text-gray-700 dark:text-gray-300"
+                    className="font-semibold text-sm text-gray-700 dark:text-white"
                   >
                     {color}
                   </label>
@@ -161,14 +161,12 @@ const SingleFrame = () => {
           </div>
 
           <div className="text-lg">
-            <span className="font-semibold text-gray-800 dark:text-gray-100">
-              Size:
-            </span>{" "}
+            <span className="font-semibold text-white">Size:</span>{" "}
             {frameData.size}
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-lg text-gray-100 font-semibold">Price:</span>
+            <span className="text-lg text-white font-semibold">Price:</span>
             <span className="text-lg text-red-500 font-semibold">
               Rs.{(frameData.price - (frameData?.discount || 0)).toFixed(2)}
             </span>
@@ -179,10 +177,10 @@ const SingleFrame = () => {
 
           {/* Contact Button */}
           <button
-            className="mt-4 bg-primary text-white font-bold py-2 px-4 rounded"
+            className="mt-4 bg-primary text-black font-bold py-2 px-4 rounded"
             onClick={handleWhatsAppClick}
           >
-            Contact on WhatsApp
+            Confirm Order
           </button>
         </div>
       </div>

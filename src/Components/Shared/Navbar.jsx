@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { motion } from "framer-motion"; // Import Framer Motion
 import MyContext from "../../context/MyContext";
 
 const navItems = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
-  // { title: "Shop", path: "/shop" },
   { title: "Gallery", path: "/gallery" },
   { title: "Contact", path: "/contact" },
 ];
@@ -24,8 +24,14 @@ const Navbar = () => {
   return (
     <div className="relative mx-4 md:mx-20 my-4">
       <nav className="flex items-center justify-between px-6 bg-secondary h-14 border md:border-t border-accent rounded-sm md:rounded-full">
-        {/* Logo Section */}
-        <div className="h-11 border border-primary rounded-full">
+        {/* Draggable Logo Section */}
+        <motion.div
+          className="h-11 border border-primary rounded-full"
+          drag // Enable drag
+          dragConstraints={{ left: -50, right: 50, top: -50, bottom: 50 }} // Constrain drag area
+          dragElastic={0.2} // Add elasticity
+          whileDrag={{ scale: 1.1, cursor: "grabbing" }} // Scale up on drag
+        >
           <img
             src={logo}
             alt="Logo"
@@ -33,7 +39,7 @@ const Navbar = () => {
             onClick={() => navigate("/")}
             onDoubleClick={() => navigate("/admin/login")}
           />
-        </div>
+        </motion.div>
 
         {/* Navigation Links for Desktop */}
         <ul className="hidden md:flex gap-6">
