@@ -58,7 +58,7 @@ const Footer = () => {
       <p className="text-center text-xs md:text-sm text-gray-500 mt-4">
         Designed and Developed by{" "}
         <a
-          href="https://manojbelbasay.netlify.app/"
+          href="https://www.manojbelbase.com.np/"
           className="text-primary hover:underline"
         >
           Manoj Belbase

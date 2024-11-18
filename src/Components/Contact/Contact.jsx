@@ -55,7 +55,7 @@ const ContactForm = () => {
           </li>
           <li className="flex items-center gap-2 text-gray-300">
             <FaMapMarkerAlt className="text-primary" />
-            <span>Lumbini, Nepal</span>
+            <span>4 No. Jitpur, Kapilvastu</span>
           </li>
         </ul>
       </div>
