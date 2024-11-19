@@ -122,7 +122,7 @@ const SingleFrame = () => {
 
           {/* Frame Color Selection */}
           <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
+            <h3 className="text-lg font-semibold text-white">
               Select Frame Color:
             </h3>
             <div className="flex gap-2 text-white">
@@ -138,7 +138,7 @@ const SingleFrame = () => {
                     className="hidden"
                   />
                   <div
-                    className={`md:w-6 md:h-6 w-4 h-4 rounded-full border-2 cursor-pointer ${
+                    className={`md:w-6 md:h-6 w-4 h-4  rounded-full border-2 cursor-pointer ${
                       selectedColor === color
                         ? color === "Black"
                           ? "bg-black"
@@ -151,7 +151,7 @@ const SingleFrame = () => {
                   ></div>
                   <label
                     htmlFor={color}
-                    className="font-semibold text-sm text-gray-700 dark:text-white"
+                    className="font-semibold text-sm text-white"
                   >
                     {color}
                   </label>
