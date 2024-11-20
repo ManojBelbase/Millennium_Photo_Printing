@@ -1,6 +1,8 @@
 import React from "react";
 import { MdArrowBack } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import bannerData from "./BannerData";
+import BannerCard from "./BannerCard";
 
 const BannerContainer = () => {
   const navigate = useNavigate();
@@ -15,6 +17,14 @@ const BannerContainer = () => {
           <MdArrowBack className="text-2xl" />
           <span>Back</span>
         </button>
+      </div>
+      <div>
+        <h1 className="font-medium  text-xl mb-4">Choose Design</h1>
+      </div>
+      <div className="grid grid-cols md:grid-cols-3 gap-3">
+        {bannerData.map((banner, i) => (
+          <BannerCard key={i} banner={banner} />
+        ))}
       </div>
     </div>
   );

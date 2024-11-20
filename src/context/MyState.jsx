@@ -18,7 +18,6 @@ function MyState({ children }) {
 
   const getAllPhotoFramesFunction = async () => {
     setLoading(true);
-
     try {
       const q = query(collection(fireDB, "photoframe"));
       const data = onSnapshot(q, (QuerySnapshot) => {

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion"; // Import Framer Motion
-import photoFrameData from "./PhotoFrameData.js";
 import PhotoFrameCard from "./PhotoFrameCard";
 import { MdArrowBack } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";

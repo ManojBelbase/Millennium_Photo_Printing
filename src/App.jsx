@@ -26,12 +26,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/admin/login" element={<Login />} />
-
         <Route path="/shop/photo_frames" element={<PhotoFrame />} />
         <Route path="/shop/photo_frames/:id" element={<SingleFrame />} />
-
         <Route path="/shop/ID_Cards" element={<IDCardContainer />} />
-
+        \
         <Route path="/shop/banners" element={<BannerContainer />} />
         <Route path="/shop/canvas" element={<CanvasContainer />} />
         <Route
@@ -39,9 +37,7 @@ function App() {
           element={<BusinessCardsContainer />}
         />
         <Route path="/shop/certificate" element={<CertificateContainer />} />
-
         {/*For Admin  */}
-
         <Route path="/admin/create_frame" element={<CreateFrame />} />
         <Route path="/admin/update_frame/:id" element={<UpdateFrame />} />
       </Route>

@@ -51,7 +51,7 @@ const CategoryContainer = () => {
         </h1>
         <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
       </div>
-      <div className="category grid grid-cols-2 gap-4 xs:grid-cols-3 sm:gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 lg:gap-2 xl:gap-4 2xl:grid-cols-6">
+      <div className="category grid grid-cols-2 gap-4 xs:grid-cols-3 sm:gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6  lg:gap-4 xl:gap-6 2xl:grid-cols-6">
         {categoryList.map((category, i) => (
           <motion.div
             key={i}
