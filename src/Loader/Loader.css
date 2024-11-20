@@ -1,0 +1,36 @@
+/* General grid layout for the loader */
+.loader-grid {
+  display: grid;
+  gap: 1rem; /* Adjust spacing between cards */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Shimmer card styles */
+.shimmer-card {
+  height: 15rem; /* Adjust height as needed */
+  background: #e0e0e0; /* Base color for shimmer */
+  border-radius: 0.5rem; /* Rounded corners */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer animation */
+.shimmer-gradient {
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start outside the left edge */
+  width: 200%; /* Wide enough to cover the shimmer effect */
+  height: 100%;
+  background: linear-gradient(to right, #e0e0e0 0%, #f0f0f0 50%, #e0e0e0 100%);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Keyframe animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

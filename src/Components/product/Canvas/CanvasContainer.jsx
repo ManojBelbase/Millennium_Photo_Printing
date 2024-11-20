@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { MdArrowBack } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import CanvasData from "./CanvasData";
 import CanvasCard from "./CanvasCard";
+import MyContext from "../../../context/MyContext";
+import Loader from "../../../Loader/Loader";
 const CanvasContainer = () => {
   const navigate = useNavigate();
+  const { loading } = useContext(MyContext);
+
   return (
     <div className="my-2 bg-secondary border-accent border p-4 shadow-md">
       <div className="flex items-center justify-between mb-3">
@@ -20,11 +24,15 @@ const CanvasContainer = () => {
       <div>
         <h1 className="font-medium  text-xl mb-4">Choose Design</h1>
       </div>
-      <div className="grid md:grid-cols-3 gap-4">
-        {CanvasData.map((canvas, i) => (
-          <CanvasCard key={i} canvas={canvas} />
-        ))}
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="grid md:grid-cols-3 gap-4">
+          {CanvasData.map((canvas, i) => (
+            <CanvasCard key={i} canvas={canvas} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -29,7 +29,6 @@ function App() {
         <Route path="/shop/photo_frames" element={<PhotoFrame />} />
         <Route path="/shop/photo_frames/:id" element={<SingleFrame />} />
         <Route path="/shop/ID_Cards" element={<IDCardContainer />} />
-        \
         <Route path="/shop/banners" element={<BannerContainer />} />
         <Route path="/shop/canvas" element={<CanvasContainer />} />
         <Route

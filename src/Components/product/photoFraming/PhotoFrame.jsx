@@ -5,6 +5,7 @@ import { MdArrowBack } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { IoCreateOutline } from "react-icons/io5";
 import MyContext from "../../../context/MyContext.jsx";
+import Loader from "../../../Loader/Loader.jsx";
 
 // Animation Variants
 const containerVariants = {
@@ -23,7 +24,7 @@ const itemVariants = {
 };
 
 const PhotoFrame = () => {
-  const { user, getAllPhotoFrames } = useContext(MyContext);
+  const { user, getAllPhotoFrames, loading } = useContext(MyContext);
   const navigate = useNavigate();
 
   return (
@@ -64,16 +65,20 @@ const PhotoFrame = () => {
       </motion.div>
 
       {/* Grid Section */}
-      <motion.div
-        className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-10 rounded-md"
-        variants={containerVariants} // Apply staggered animation to children
-      >
-        {getAllPhotoFrames.map((frame, i) => (
-          <motion.div key={i} variants={itemVariants}>
-            <PhotoFrameCard frame={frame} />
-          </motion.div>
-        ))}
-      </motion.div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <motion.div
+          className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-10 rounded-md"
+          variants={containerVariants} // Apply staggered animation to children
+        >
+          {getAllPhotoFrames.map((frame, i) => (
+            <motion.div key={i} variants={itemVariants}>
+              <PhotoFrameCard frame={frame} />
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
     </motion.div>
   );
 };

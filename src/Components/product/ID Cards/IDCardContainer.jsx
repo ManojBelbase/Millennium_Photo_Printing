@@ -1,12 +1,14 @@
 // import { IoCreateOutline } from "react-icons/io5";
 import { MdArrowBack } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
-// import MyContext from "../../../context/MyContext";
+import MyContext from "../../../context/MyContext";
 import IDCardData from "./IDCardData";
 import IDCards from "./IDCard";
+import Loader from "../../../Loader/Loader";
+import { useContext } from "react";
 
 const IDCardContainer = () => {
-  // const { user } = useContext(MyContext);
+  const { loading } = useContext(MyContext);
   const navigate = useNavigate();
   return (
     <div className="my-2 bg-secondary border-accent border p-4 shadow-md ">
@@ -33,11 +35,15 @@ const IDCardContainer = () => {
       <div>
         <h1 className="font-medium  text-xl mb-4">Choose Design</h1>
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        {IDCardData.map((IDCard, i) => (
-          <IDCards key={i} IDCard={IDCard} />
-        ))}
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {IDCardData.map((IDCard, i) => (
+            <IDCards key={i} IDCard={IDCard} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
