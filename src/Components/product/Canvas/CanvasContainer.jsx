@@ -1,7 +1,8 @@
 import React from "react";
 import { MdArrowBack } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-
+import CanvasData from "./CanvasData";
+import CanvasCard from "./CanvasCard";
 const CanvasContainer = () => {
   const navigate = useNavigate();
   return (
@@ -15,6 +16,14 @@ const CanvasContainer = () => {
           <MdArrowBack className="text-2xl" />
           <span>Back</span>
         </button>
+      </div>
+      <div>
+        <h1 className="font-medium  text-xl mb-4">Choose Design</h1>
+      </div>
+      <div className="grid md:grid-cols-3 gap-4">
+        {CanvasData.map((canvas, i) => (
+          <CanvasCard key={i} canvas={canvas} />
+        ))}
       </div>
     </div>
   );

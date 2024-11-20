@@ -1,6 +1,8 @@
 import React from "react";
 import { MdArrowBack } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import BusinessCard from "./BusinessCard";
+import BusinessCardData from "./BusinessCardData";
 
 const BusinessCardsContainer = () => {
   const navigate = useNavigate();
@@ -15,6 +17,14 @@ const BusinessCardsContainer = () => {
           <MdArrowBack className="text-2xl" />
           <span>Back</span>
         </button>
+      </div>
+      <div>
+        <h1 className="font-medium  text-xl mb-4">Choose Design</h1>
+      </div>
+      <div className="grid gap-4 md:grid-cols-3">
+        {BusinessCardData.map((bc, i) => (
+          <BusinessCard key={i} bc={bc} />
+        ))}
       </div>
     </div>
   );
