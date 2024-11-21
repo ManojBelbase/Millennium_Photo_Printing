@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const IDCard = ({ IDCard }) => {
   const handleWhatsAppClick = () => {
@@ -27,8 +29,10 @@ const IDCard = ({ IDCard }) => {
   return (
     <div className="relative">
       <Link className="sm:h-96 md:w-60" onClick={handleWhatsAppClick}>
-        <img
+        <LazyLoadImage
           src={IDCard?.image}
+          loading="lazy"
+          effect="blur"
           className="h-full w-full object-contain border"
           alt={IDCard?.name || "ID Card"}
         />

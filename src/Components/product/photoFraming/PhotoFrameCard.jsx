@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 const PhotoFrameCard = ({ frame }) => {
   return (
     <div className="shadow-sm">
@@ -14,10 +15,12 @@ const PhotoFrameCard = ({ frame }) => {
           {/* Inner Container for White Shadow Effect */}
           <div className="h-full w-full bg-white p-[2px] rounded-sm shadow-lg">
             <div className="h-full w-full rounded-sm overflow-hidden">
-              <img
+              <LazyLoadImage
+                effect="blur"
+                loading="lazy"
                 src={frame.image}
                 alt={frame.name}
-                className="h-full w-full object-contain"
+                className="h-full border border-primary w-full flex items-center justify-between object-contain"
               />
             </div>
           </div>

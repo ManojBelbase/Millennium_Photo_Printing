@@ -1,4 +1,6 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const BannerCard = ({ banner }) => {
   const businessWhatsAppNumber = "9745415956";
@@ -24,7 +26,13 @@ const BannerCard = ({ banner }) => {
         className="relative border-2 cursor-pointer border-white"
         onClick={handleInterestedOnItem}
       >
-        <img src={banner?.image} alt={banner?.name} className="object-cover" />
+        <LazyLoadImage
+          src={banner?.image}
+          loading="lazy"
+          effect="blur"
+          alt={banner?.name}
+          className="object-cover"
+        />
         <div className="absolute top-2 rounded-sm bg-opacity-90 right-2 bg-secondary text-primary border px-2">
           #{banner?.id}
         </div>

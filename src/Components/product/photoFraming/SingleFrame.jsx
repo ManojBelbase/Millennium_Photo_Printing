@@ -105,6 +105,7 @@ const SingleFrame = () => {
           <img
             src={frameData.image}
             alt={frameData.name}
+            loading="lazy"
             className={`w-full h-auto object-cover rounded-sm border-8 ${borderColorClass} shadow-lg inner-shadow outline outline-2 outline-gray-300`}
           />
         </div>

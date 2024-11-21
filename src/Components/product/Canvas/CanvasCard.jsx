@@ -1,4 +1,6 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const CanvasCard = ({ canvas }) => {
   const businessWhatsAppNumber = "9745415956";
@@ -20,10 +22,16 @@ const CanvasCard = ({ canvas }) => {
 
   return (
     <div
-      className="relative border-2 cursor-pointer border-primary"
+      className="relative border cursor-pointer border-primary"
       onClick={handleInterestedOnItem}
     >
-      <img src={canvas?.image} alt={canvas?.name} className="object-cover" />
+      <LazyLoadImage
+        src={canvas?.image}
+        loading="lazy"
+        effect="blur"
+        alt={canvas?.name}
+        className="object-cover w-full h-full"
+      />
       <div className="absolute top-2 rounded-sm bg-opacity-90 right-2 bg-secondary text-primary border px-2">
         #{canvas?.id}
       </div>
