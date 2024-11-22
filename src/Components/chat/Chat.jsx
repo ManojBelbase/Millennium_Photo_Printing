@@ -19,7 +19,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="fixed bottom-16 right-4 md:bottom-16 md:right-6 z-50">
+    <div className="fixed bottom-6 right-6 md:bottom-6 md:right-6 z-50">
       {/* Chat Box */}
       {isChatOpen && (
         <div
@@ -29,7 +29,7 @@ const Chat = () => {
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold text-white">Chat with us</h2>
             <button
-              className="text-gray-500 hover:text-red-500 text-2xl"
+              className="text-red-600 hover:text-red-500 text-2xl"
               onClick={() => setIsChatOpen(false)}
             >
               ✕

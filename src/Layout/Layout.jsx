@@ -3,7 +3,7 @@ import Footer from "../Components/Shared/Footer";
 import Navbar from "../Components/Shared/Navbar";
 import { Outlet } from "react-router-dom";
 import { FaArrowUp } from "react-icons/fa";
-import Chat from "../Components/chat/Chat";
+import Chat from "../Components/chat/Chat"; // Assuming Chat is WhatsApp component
 
 const Layout = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -44,12 +44,13 @@ const Layout = () => {
         <Footer />
       </div>
       {/* Scroll to Top Arrow */}
-      <div className="fixed bottom-20 right-6 p-2">
-        <Chat />
+      <div className="w-full fixed bottom-20 right-6 p-2">
+        {/* Show WhatsApp icon when scroll button is hidden */}
+        {!showScroll && <Chat />}
       </div>
       {showScroll && (
         <div
-          className="fixed bottom-6 right-6 border bg-accent border-primary text-white p-2 md:p-2 rounded-full shadow-lg cursor-pointer hover:bg-primary transition"
+          className="fixed bottom-3 right-6 border bg-accent border-primary text-white p-2 md:p-2 rounded-full shadow-lg cursor-pointer hover:bg-primary transition"
           onClick={scrollToTop}
         >
           <FaArrowUp className="text-xs md:text-sm" />
