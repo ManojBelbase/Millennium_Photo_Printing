@@ -3,6 +3,7 @@ import Footer from "../Components/Shared/Footer";
 import Navbar from "../Components/Shared/Navbar";
 import { Outlet } from "react-router-dom";
 import { FaArrowUp } from "react-icons/fa";
+import Chat from "../Components/chat/Chat";
 
 const Layout = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -43,6 +44,9 @@ const Layout = () => {
         <Footer />
       </div>
       {/* Scroll to Top Arrow */}
+      <div className="fixed bottom-20 right-6 p-2">
+        <Chat />
+      </div>
       {showScroll && (
         <div
           className="fixed bottom-6 right-6 border bg-accent border-primary text-white p-2 md:p-2 rounded-full shadow-lg cursor-pointer hover:bg-primary transition"

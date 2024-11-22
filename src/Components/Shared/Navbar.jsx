@@ -8,7 +8,7 @@ import MyContext from "../../context/MyContext";
 const navItems = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
-  { title: "Gallery", path: "/gallery" },
+  // { title: "Gallery", path: "/gallery" },
   { title: "Contact", path: "/contact" },
 ];
 

@@ -44,7 +44,7 @@ const Footer = () => {
             <FaWhatsapp />
           </a>
           <a
-            href="https://www.tiktok.com/@your-account"
+            href="https://www.tiktok.com/@millenniumphoto.np"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-primary transition-colors text-lg"

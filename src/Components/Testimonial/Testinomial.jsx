@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; // Importing Framer Motion
 
 // Reusable Rating Component
 const Rating = ({ stars }) => {
@@ -32,9 +33,9 @@ const Testinomial = () => {
       stars: 5,
     },
     {
-      name: "Sarah Lee",
+      name: "Manoj Poudel",
       image:
-        "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+        "https://media.licdn.com/dms/image/v2/D4D03AQFy3LAUVkvEQg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729877632902?e=1737590400&v=beta&t=8U5rzLnfmWBMEgAYkxOQtHbGX8__SE6A-yqHBa8D4LU",
       text: "Professional ID card designs with great attention to detail. The team was efficient, and the final product was fantastic.",
       stars: 4,
     },
@@ -47,8 +48,13 @@ const Testinomial = () => {
     },
   ];
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section className=" bg-black rounded-md">
+    <section className="bg-black rounded-md">
       <div className="mx-auto py-6 lg:py-8">
         <div className="flex flex-col items-start">
           <h1 className="text-sm md:text-2xl font-semibold uppercase">
@@ -59,17 +65,23 @@ const Testinomial = () => {
 
         <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-8">
           {reviews.map((review, index) => (
-            <blockquote
+            <motion.div
               key={index}
-              className="rounded-lg bg-secondary border-accent shadow-accent p-4 md:p-6 shadow-sm sm:p-8"
+              className="rounded-lg bg-secondary border-accent shadow-accent p-4 md:p-6 shadow-sm sm:p-8 
+                     hover:shadow-primary delay-300 transition-shadow transform  duration-300"
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <div className="flex items-center gap-2 md:gap-4">
                 <img
                   alt=""
                   src={review.image}
-                  className="size-10 md:size-14 rounded-full object-cover"
+                  className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
                 />
-                <div className="flex flex-col ite">
+                <div className="flex flex-col">
                   <Rating stars={review.stars} />
                   <p className="mt-0.5 text-sm md:text-lg font-medium text-white">
                     {review.name}
@@ -79,7 +91,7 @@ const Testinomial = () => {
               <p className="mt-3 md:mt-4 text-xs md:text-base text-gray-400">
                 {review.text}
               </p>
-            </blockquote>
+            </motion.div>
           ))}
         </div>
       </div>
