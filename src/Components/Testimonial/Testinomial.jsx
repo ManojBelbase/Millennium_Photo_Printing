@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion"; // Importing Framer Motion
-
+import client1 from "./client1.jpg";
 // Reusable Rating Component
 const Rating = ({ stars }) => {
   const starPath =
@@ -32,18 +32,18 @@ const Testinomial = () => {
       text: "The custom photo frame was beautifully crafted, and the quality exceeded my expectations. Highly recommend their services!",
       stars: 5,
     },
+
+    {
+      name: "Aarati Bhattarai",
+      image: client1,
+      text: "I ordered a birthday photo frame, and it was perfect! Beautifully made and delivered on time. Very satisfied!",
+      stars: 4,
+    },
     {
       name: "Manoj Poudel",
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQFy3LAUVkvEQg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729877632902?e=1737590400&v=beta&t=8U5rzLnfmWBMEgAYkxOQtHbGX8__SE6A-yqHBa8D4LU",
       text: "Professional ID card designs with great attention to detail. The team was efficient, and the final product was fantastic.",
-      stars: 4,
-    },
-    {
-      name: "Aarati Sharma",
-      image:
-        "https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
-      text: "I ordered a birthday photo frame, and it was perfect! Beautifully made and delivered on time. Very satisfied!",
       stars: 5,
     },
   ];

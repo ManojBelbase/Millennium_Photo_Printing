@@ -3,6 +3,8 @@ import id2 from "../../../assets/idCard/id2.jpg";
 import id3 from "../../../assets/idCard/id3.png";
 import id4 from "../../../assets/idCard/id4.png";
 import id5 from "../../../assets/idCard/id5.png";
+import id6 from "../../../assets/idCard/id6.jpg";
+import id7 from "../../../assets/idCard/id7.jpg";
 const IDCardData = [
   {
     id: "1",
@@ -33,6 +35,18 @@ const IDCardData = [
     name: "Fifth ID Card",
     // size: "A4",
     image: id5,
+  },
+  {
+    id: "6",
+    name: "Sixth ID Card",
+    // size: "A4",
+    image: id6,
+  },
+  {
+    id: "7",
+    name: "Seventh ID Card",
+    // size: "A4",
+    image: id7,
   },
 ];
 export default IDCardData;
