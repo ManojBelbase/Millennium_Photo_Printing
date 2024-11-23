@@ -26,14 +26,14 @@ const Footer = () => {
         </div>
 
         {/* Social Links */}
-        <div className="flex space-x-2 md:space-x-6">
+        <div className="flex items-center gap-3">
           <a
             href="https://www.facebook.com/profile.php?id=61555895144416"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-primary transition-colors text-lg"
+            className="text-gray-400  hover:text-primary transition-colors text-lg"
           >
-            <FaFacebook className="cursor-pointer" />
+            <FaFacebook className="" />
           </a>
           <a
             href="https://wa.me/9745415956"
