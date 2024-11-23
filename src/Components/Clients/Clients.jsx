@@ -31,7 +31,7 @@ const Clients = () => {
           <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
         </div>
         <motion.div
-          className="mt-4 grid grid-cols-4 md:grid-cols-8"
+          className="mt-4 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-5 gap-2"
           initial="hidden"
           animate="visible"
           variants={containerVariants}

@@ -6,14 +6,14 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 const IDCard = ({ IDCard }) => {
   const handleWhatsAppClick = () => {
     const isConfirmed = window.confirm(
-      `We noticed you're interested in this item:\n\nName: ${IDCard?.name}\nSize: ${IDCard?.size}\n\nWould you like to continue and discuss the details on WhatsApp?`
+      `We noticed you're interested in this item:\n\nName: ${IDCard?.name}\n\nWould you like to continue and discuss the details on WhatsApp?`
     );
 
     if (isConfirmed) {
       const message = `
         *IDCard Details:*
         Name: ${IDCard?.name}
-        Size: ${IDCard?.size}
+        
         
         I'm interested in this ID Card Design. Please provide more details.`;
 

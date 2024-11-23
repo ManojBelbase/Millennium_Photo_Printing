@@ -33,7 +33,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-primary transition-colors text-lg"
           >
-            <FaFacebook />
+            <FaFacebook className="cursor-pointer" />
           </a>
           <a
             href="https://wa.me/9745415956"
@@ -44,7 +44,7 @@ const Footer = () => {
             <FaWhatsapp />
           </a>
           <a
-            href="https://www.tiktok.com/@millenniumphoto.np"
+            href="https://www.tiktok.com/@millenniumphoto.np?_t=8rcssYANkPd&_r=1"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-primary transition-colors text-lg"

@@ -2,6 +2,7 @@ import bhanu from "../../assets/logos/bhanu.jpg";
 import dhatiwang from "../../assets/logos/dhatiwang.jpg";
 import vidhyabinod from "../../assets/logos/vidhyabinod.jpg";
 import city from "../../assets/logos/city.jpg";
+import mandre from "../../assets/logos/mandre.jpg";
 export const ClientsData = [
   {
     name: "Bhanu Secondary School",
@@ -21,6 +22,11 @@ export const ClientsData = [
   {
     name: "Mity Montessori",
     logo: city,
+    location: "Bangain",
+  },
+  {
+    name: "Mandre Secondary School",
+    logo: mandre,
     location: "Bangain",
   },
 ];
