@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import Category from "./Category";
 import c1 from "../../assets/c1.png";
 import c2 from "../../assets/c2.png";
@@ -7,6 +7,8 @@ import c3 from "../../assets/c3.png";
 import c4 from "../../assets/c4.png";
 import c5 from "../../assets/c5.png";
 import c6 from "../../assets/c6.png";
+import howTo from "../../assets/howto.png";
+import VideoPlayer from "../../others/VideoPlayer.jsx"; // Import VideoPlayer component
 
 const categoryList = [
   { name: "Photo Frames", image: c1 },
@@ -17,46 +19,42 @@ const categoryList = [
   { name: "Certificates", image: c6 },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      staggerChildren: 0.2, // Delay between children animations
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
-};
-
 const CategoryContainer = () => {
+  const [playState, setPlayState] = useState(false); // State for controlling video player visibility
+
+  const openVideoPlayer = () => {
+    setPlayState(true); // Open video player
+  };
+
   return (
     <motion.div
       className="my-6 flex flex-col items-start gap-4"
       initial="hidden"
       animate="visible"
-      variants={containerVariants} // Apply container variants
     >
-      <div className="flex flex-col items-start">
-        <h1 className="text:sm md:text-2xl font-semibold uppercase">
-          Shop By Category
-        </h1>
-        <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
+      <div className="relative flex items-center justify-between w-full">
+        <div className="flex flex-col items-start">
+          <h1 className="text:sm md:text-2xl font-semibold uppercase">
+            Shop By Category
+          </h1>
+          <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
+        </div>
+        <div className="flex">
+          <img
+            src={howTo}
+            alt="How to Order"
+            className="md:w-12 w-10 cursor-pointer absolute right-2 -top-2 animate-pulse"
+            onClick={openVideoPlayer} // Open VideoPlayer when the image is clicked
+          />
+        </div>
       </div>
+
+      {/* VideoPlayer Component */}
+      <VideoPlayer playState={playState} setPlayState={setPlayState} />
+
       <div className="category grid grid-cols-2 gap-4 xs:grid-cols-3 sm:gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6  lg:gap-4 xl:gap-6 2xl:grid-cols-6">
         {categoryList.map((category, i) => (
-          <motion.div
-            key={i}
-            variants={itemVariants} // Apply item variants
-          >
+          <motion.div key={i}>
             <Category category={category} />
           </motion.div>
         ))}

@@ -8,12 +8,11 @@ import MyContext from "../../context/MyContext";
 const navItems = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
-  // { title: "Gallery", path: "/gallery" },
+  { title: "Our Services", path: "/services" },
   { title: "Contact", path: "/contact" },
 ];
 
 const Navbar = () => {
-  const { user } = useContext(MyContext);
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -35,7 +34,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Logo"
-            className="h-full rounded-full object-cover cursor-pointer"
+            className="h-full rounded-full object-cover cursor-pointer hover:animate-spin"
             onClick={() => navigate("/")}
             onDoubleClick={() => navigate("/admin/login")}
           />
