@@ -1,14 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { motion } from "framer-motion"; // Import Framer Motion
-import MyContext from "../../context/MyContext";
 
 const navItems = [
   { title: "Home", path: "/" },
   { title: "About", path: "/about" },
-  { title: "Our Services", path: "/services" },
+  // { title: "Our Services", path: "/services" },
   { title: "Contact", path: "/contact" },
 ];
 
