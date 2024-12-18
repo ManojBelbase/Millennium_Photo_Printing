@@ -1,5 +1,5 @@
 import React from "react";
-
+import about from "../assets/about.jpg";
 const About = () => {
   return (
     <div className="bg-secondary text-white py-8 px-4 rounded-sm">
@@ -39,7 +39,7 @@ const About = () => {
           {/* Image Section */}
           <div className="md:w-1/2 mt-6 md:mt-0">
             <img
-              src="https://scontent.fbwa8-1.fna.fbcdn.net/v/t39.30808-6/438707881_122141132720196504_9005087793233703439_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHRf7yJxRwZLBRqzs29vVTv9vcpHO2OPWT29ykc7Y49ZAd71PW0_KhrCFVuXnuv8_Kh6_tsaBVaOYRzpmkM72mL&_nc_ohc=xpdEMF87ryoQ7kNvgFg_OPl&_nc_zt=23&_nc_ht=scontent.fbwa8-1.fna&_nc_gid=AlfcuBZjUUj_0ornrXUOI9H&oh=00_AYBYwrE019ttX7AS9r0aMBxCd-ftSI0GbzFEDQe2ChWT7w&oe=67473D2C"
+              src={about}
               alt="Millenium Photo Printing"
               className="w-full rounded-lg shadow-lg"
             />
