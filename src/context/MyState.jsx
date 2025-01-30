@@ -26,7 +26,7 @@ function MyState({ children }) {
           photoFrameArray.push({ ...doc.data(), id: doc.id });
         });
         setGetAllPhotoFrames(photoFrameArray);
-        setLoading(false);
+        setLoading(false); 
       });
       return () => data;
     } catch (error) {

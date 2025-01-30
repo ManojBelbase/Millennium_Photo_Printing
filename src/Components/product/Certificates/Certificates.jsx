@@ -16,6 +16,7 @@ const Certificates = ({ item }) => {
       <div className="absolute top-2 rounded-sm bg-opacity-90 right-2 bg-secondary text-primary border px-1 text-sm md:text-ba md:px-2">
         #{item?.id}
       </div>
+      <p className="absolute backdrop-blur-sm bg-white/10 bottom-10  md:px-4 h-7 w-full"></p>
     </div>
   );
 };
