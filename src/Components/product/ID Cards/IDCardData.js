@@ -5,6 +5,7 @@ import id4 from "../../../assets/idCard/id4.png";
 import id5 from "../../../assets/idCard/id5.png";
 import id6 from "../../../assets/idCard/id6.jpg";
 import id7 from "../../../assets/idCard/id7.jpg";
+import id8 from "../../../assets/idCard/id8.jpg";
 const IDCardData = [
   {
     id: "1",
@@ -47,6 +48,12 @@ const IDCardData = [
     name: "Seventh ID Card",
     // size: "A4",
     image: id7,
+  },
+  {
+    id: "8",
+    name: "Eight ID Card",
+    // size: "A4",
+    image: id8,
   },
 ];
 export default IDCardData;

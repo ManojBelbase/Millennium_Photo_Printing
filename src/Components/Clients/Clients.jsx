@@ -8,7 +8,7 @@ const Clients = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        staggerChildren: 0.2, // Delay between children animations
+        staggerChildren: 0.2,
       },
     },
   };
@@ -31,7 +31,7 @@ const Clients = () => {
           <span className="w-10 md:w-14 lg:w-16 h-[2px] md:h-1 mt-1 bg-primary"></span>
         </div>
         <motion.div
-          className="mt-4 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-5 gap-2"
+          className="mt-4 grid grid-cols-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-y-2 md:gap-y-5"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
@@ -41,7 +41,7 @@ const Clients = () => {
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="h-16 w-16 md:h-24 md:w-24 rounded-sm bg-white p-1"
+                className="h-20 w-20 md:h-36 md:w-36 rounded-sm bg-white p-1"
               >
                 <img
                   src={client.logo}

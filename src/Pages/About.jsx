@@ -1,9 +1,8 @@
-import React from "react";
 import about from "../assets/about.jpg";
 const About = () => {
   return (
     <div className="bg-secondary text-white py-8 px-4 rounded-sm">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Title */}
         <h1 className="text-xl md:text-3xl font-bold mb-6 text-start">
           About Millenium Photo Printing

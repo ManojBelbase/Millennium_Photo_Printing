@@ -8,6 +8,7 @@ import c4 from "../../assets/c4.png";
 import c5 from "../../assets/c5.png";
 import c6 from "../../assets/c6.png";
 import howTo from "../../assets/howto.png";
+import lanyard from "../../assets/lanyard/lanyard1.jpg";
 import VideoPlayer from "../../others/VideoPlayer.jsx"; // Import VideoPlayer component
 
 const categoryList = [
@@ -15,6 +16,7 @@ const categoryList = [
   { name: "ID Cards", image: c2 },
   { name: "Banners", image: c3 },
   { name: "Canvas", image: c4 },
+  { name: "Lanyard", image: lanyard },
   { name: "Business Cards", image: c5 },
   { name: "Certificates", image: c6 },
 ];
@@ -52,7 +54,7 @@ const CategoryContainer = () => {
       {/* VideoPlayer Component */}
       <VideoPlayer playState={playState} setPlayState={setPlayState} />
 
-      <div className="category grid grid-cols-2 gap-4 xs:grid-cols-3 sm:gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6  lg:gap-4 xl:gap-6 2xl:grid-cols-6">
+      <div className="category grid grid-cols-2 gap-4 xs:grid-cols-3 sm:gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7  lg:gap-4 xl:gap-6 2xl:grid-cols-7">
         {categoryList.map((category, i) => (
           <motion.div key={i}>
             <Category category={category} />

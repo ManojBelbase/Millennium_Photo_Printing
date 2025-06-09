@@ -28,7 +28,7 @@ const Testinomial = () => {
     {
       name: "Bhesraj Belbase",
       image:
-        "https://scontent.fbwa8-1.fna.fbcdn.net/v/t1.6435-9/115934280_768395273897289_8751289607749192566_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=GlYG_Byfft8Q7kNvgGLj8N_&_nc_zt=23&_nc_ht=scontent.fbwa8-1.fna&_nc_gid=Ag8ECU4dQYt2ms2MSalBDFP&oh=00_AYD0jVdO7O6JB95TdOsUnV0ghXspWrqx3QWIKO1X26j7Ag&oe=67603039",
+        "https://scontent.fktm19-1.fna.fbcdn.net/v/t1.6435-9/35826279_264976767572478_4317226994803671040_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=669761&_nc_ohc=pQ7zNUrJwZIQ7kNvwG1MwuF&_nc_oc=AdnQ8tIHqnQipaMQJmntl9_4ABGERFDpfYXvyLBFSX7NXFzkyVubNUGQh8q-tBq-CK2Tk05BuYYZRdwamuu6q1df&_nc_zt=23&_nc_ht=scontent.fktm19-1.fna&_nc_gid=TmTNO9TdgT-Dliyk_nIJLw&oh=00_AfNhLjDhW_aTQSTbVBi6vWXgQWzuWRaO4KrrALbf8ZZKLg&oe=686E73B5",
       text: "The custom photo frame was beautifully crafted, and the quality exceeded my expectations. Highly recommend their services!",
       stars: 5,
     },

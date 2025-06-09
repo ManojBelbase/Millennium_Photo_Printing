@@ -34,7 +34,7 @@ const Layout = () => {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="w-full max-w-screen-xl">
+      <div className="w-full max-w-screen-2xl">
         <Navbar />
         <div className="md:mx-20 mx-4">
           <Outlet />
